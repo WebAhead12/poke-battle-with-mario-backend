@@ -1,0 +1,23 @@
+{
+  "name": "poke-battle-with-mario-backend",
+  "version": "1.0.0",
+  "description": "Back-end for the hit website poke-battle-with-mario",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WebAhead12/poke-battle-with-mario-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WebAhead12/poke-battle-with-mario-backend/issues"
+  },
+  "homepage": "https://github.com/WebAhead12/poke-battle-with-mario-backend#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.15"
+  }
+}
