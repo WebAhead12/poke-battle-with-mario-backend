@@ -1,5 +1,7 @@
 const express = require("express");
 const router = express.Router();
-const path = require("path");
+const userHandler = require("./handlers/users.js");
+
+router.post("/createUser", userHandler.createUser);
 
 module.exports = router;

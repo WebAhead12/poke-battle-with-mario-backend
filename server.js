@@ -1,10 +1,10 @@
 const express = require("express");
 const router = require("./router");
 
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT || 12345;
 const app = express();
 
-app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
 app.use(router);
 
 app.listen(PORT, () => {
