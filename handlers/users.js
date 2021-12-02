@@ -79,7 +79,6 @@ const userInfo = (req, res) => {
       if (!data) {
         res.send({ status: "userInfoNotExist" });
       } else {
-        const [info] = data;
         res.send(data);
       }
     })

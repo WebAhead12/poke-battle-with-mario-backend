@@ -19,7 +19,7 @@ const getTeam = (req, res) => {
 
 const updateTeam = (req, res) => {
   const data = req.body;
-  console.log(data.team);
+  console.log("data.team : " + data.team);
   teamModel
     .updateTeam(data.id, data.team)
     .then(() => res.status(200).send({ status: "updateTeamSuccess" }))
