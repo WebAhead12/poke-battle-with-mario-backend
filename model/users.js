@@ -1,25 +1,37 @@
 const db = require("../database/connection");
 
-const getAllUsers = () => {
-  return db.query("SELECT * FROM users").then((rows) => {
-    if (!rows.rows.length) throw new Error("Couldnt get users");
-    return rows.rows[0];
-  });
-};
-
-const createUser = (user) => {
+const getUser = (user) => {
   return db
-    .query("INSERT INTO users (username,password,team) VALUES($1,$2,$3)", [
-      user.username,
-      user.password,
-      user.team,
-    ])
+    .query("SELECT * FROM users WHERE username=$1", [user.username])
     .then((rows) => {
-      if (!rows.rows.length) throw new Error("Couldnt create user");
-      return rows.rows[0];
+      return JSON.stringify(rows.rows[0]);
     });
 };
 
+const getUserId = (user) => {
+  return db
+    .query("SELECT id FROM users WHERE username=$1", [user.username])
+    .then((rows) => {
+      return JSON.stringify(rows.rows[0]);
+    });
+};
+
+const createUser = (user) => {
+  return db.query("INSERT INTO users (username,password) VALUES($1,$2)", [
+    user.username,
+    user.password,
+  ]);
+};
+
+const getUserById = (id) => {
+  return db.query("SELECT * FROM users WHERE id=$1", [id]).then((rows) => {
+    return rows.rows;
+  });
+};
+
 module.exports = {
-  getAllUsers,
+  getUser,
+  getUserId,
+  createUser,
+  getUserById,
 };
